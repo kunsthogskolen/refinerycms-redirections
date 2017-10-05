@@ -1,5 +1,3 @@
-# Encoding: UTF-8
-
 Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.name              = 'refinerycms-redirections'
@@ -7,17 +5,14 @@ Gem::Specification.new do |s|
   s.version           = '2.0.10.1'
   s.description       = 'RefineryCMS plugin for managing HTTP redirections'
   s.date              = '2013-08-27'
-  s.homepage          = %q{https://github.com/simplelogica/refinerycms-redirections}
+  s.homepage          = 'https://github.com/simplelogica/refinerycms-redirections'
   s.summary           = 'RefineryCMS plugin for managing HTTP redirections'
-  s.require_paths     = %w(lib)
-  s.files             = Dir["{app,config,db,lib}/**/*"] + ["README.md"]
+  s.require_paths     = %w[lib]
+  s.files             = Dir['{app,config,db,lib}/**/*'] + ['README.md']
 
   # Runtime dependencies
-  s.add_dependency             'refinerycms-core',    '~> 2.1.5'
-  s.add_dependency             'refinerycms-i18n',    '~> 2.1.0'
-  s.add_dependency             'rack-rewrite',        '~> 1.5.1'
-  s.add_dependency             'enumerize',        '~> 0.7.0'
-
-  # Development dependencies (usually used for testing)
-  s.add_development_dependency 'refinerycms-testing', '~> 2.1.5'
+  s.add_dependency 'refinerycms-core', '~> 3.0.0'
+  s.add_dependency 'refinerycms-i18n', '~> 3.0.0'
+  s.add_dependency 'rack-rewrite',     '~> 1.5.1'
+  s.add_dependency 'enumerize',        '~> 0.7.0'
 end
