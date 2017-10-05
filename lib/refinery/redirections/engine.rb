@@ -14,7 +14,6 @@ module Refinery
                                   .redirections_admin_redirections_path
           }
           plugin.menu_match = %r{refinery\/redirections\/?}
-          plugin.activity = { class_name: :'refinery/redirections/redirection' }
         end
       end
 
