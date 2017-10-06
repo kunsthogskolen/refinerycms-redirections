@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.name              = 'refinerycms-redirections'
   s.authors           = 'david.brenes@the-cocktail.com'
-  s.version           = '2.0.10.1'
+  s.version           = '3.0.0'
   s.description       = 'RefineryCMS plugin for managing HTTP redirections'
   s.date              = '2013-08-27'
   s.homepage          = 'https://github.com/simplelogica/refinerycms-redirections'
