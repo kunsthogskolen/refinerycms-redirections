@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    refinerycms-redirections (2.0.10.1)
+    refinerycms-redirections (3.0.1)
       enumerize (~> 0.7.0)
       rack-rewrite (~> 1.5.1)
       refinerycms-core (~> 3.0.0)
