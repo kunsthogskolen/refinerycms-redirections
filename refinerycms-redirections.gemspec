@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   # Runtime dependencies
   s.add_dependency             'refinerycms-core',    '~> 2.1.5'
-  s.add_dependency             'refinerycms-i18n',    '~> 2.1.0'
+  s.add_dependency             'refinerycms-i18n',    '~> 3.0'
   s.add_dependency             'rack-rewrite',        '~> 1.5.1'
   s.add_dependency             'enumerize',        '~> 0.7.0'
 
