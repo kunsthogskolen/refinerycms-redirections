@@ -7,9 +7,13 @@ module Refinery
         private
 
         def redirection_params
-          params.require(:redirection).permit(
-            :from_url, :to_url, :status_code
-          )
+          params.require(:redirection).permit(permitted_redirection_params)
+        end
+
+        def permitted_redirection_params
+          %i[
+            from_url to_url status_code
+          ]
         end
       end
     end
