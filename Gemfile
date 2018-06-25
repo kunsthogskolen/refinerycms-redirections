@@ -2,10 +2,10 @@ source 'http://rubygems.org'
 
 gemspec
 
-gem 'enumerize', '~> 0.7.0'
-gem 'rack-rewrite', '~> 1.5'
-gem 'refinerycms', '~> 3.0'
-gem 'refinerycms-i18n', '~> 3.0.0'
+gem 'enumerize'
+gem 'rack-rewrite'
+gem 'refinerycms'
+gem 'refinerycms-i18n'
 
 platforms :ruby do
   gem 'sqlite3'

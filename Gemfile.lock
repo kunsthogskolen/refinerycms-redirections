@@ -1,11 +1,11 @@
 PATH
   remote: .
   specs:
-    refinerycms-redirections (3.0.4)
-      enumerize (~> 0.7.0)
-      rack-rewrite (~> 1.5.1)
-      refinerycms-core (~> 3.0.6)
-      refinerycms-i18n (~> 3.0.0)
+    refinerycms-redirections (4.0.0)
+      enumerize
+      rack-rewrite
+      refinerycms-core
+      refinerycms-i18n
 
 GEM
   remote: http://rubygems.org/
@@ -196,12 +196,12 @@ PLATFORMS
 
 DEPENDENCIES
   database_cleaner
-  enumerize (~> 0.7.0)
+  enumerize
   ffaker
   launchy
-  rack-rewrite (~> 1.5)
-  refinerycms (~> 3.0)
-  refinerycms-i18n (~> 3.0.0)
+  rack-rewrite
+  refinerycms
+  refinerycms-i18n
   refinerycms-redirections!
   sqlite3
 
