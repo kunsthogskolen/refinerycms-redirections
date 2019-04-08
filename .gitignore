@@ -6,3 +6,4 @@ spec/dummy/
 tmp/rspec_guard_result
 # Temp files from CSV in OpenOffice
 .~lock.*.csv#
+Gemfile.lock
