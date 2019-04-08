@@ -3,6 +3,8 @@ en:
     redirections:
       admin:
         redirections:
+          edit: Edit this redirection
+          delete: Delete this redirection
           actions:
             create_new: Create new redirection
             list: View all redirections
