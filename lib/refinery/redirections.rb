@@ -15,7 +15,7 @@ module Refinery
 
     class << self
       def root
-        @root ||= Pathname.new(File.expand_path('../../../', __FILE__))
+        @root ||= Pathname.new(File.expand_path('../..', __dir__))
       end
 
       def factory_paths
