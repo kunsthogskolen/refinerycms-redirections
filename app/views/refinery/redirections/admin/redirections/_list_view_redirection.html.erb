@@ -1,11 +1,22 @@
-<li id="sortable_<%= list_view_redirection.id %>" class="clearfix record <%= cycle('on', 'on-hover') %>">
+<li id="sortable_<%= list_view_redirection.id %>"
+    class="clearfix record <%= cycle('on', 'on-hover') %>">
   <span class="title">
     <%= translated_field(list_view_redirection, :title) %>
   </span>
 
   <span class="actions">
-    <%= action_icon :edit, refinery.edit_redirections_admin_redirection_path(list_view_redirection), t('edit', scope: 'refinery.redirections.admin.redirections') %>
-    <%= action_icon :delete, refinery.redirections_admin_redirection_path(list_view_redirection),  t('delete', scope: 'refinery.redirections.admin.redirections'), class: 'confirm-delete',
-                           data: { confirm: t('message', scope: 'refinery.admin.delete', title: list_view_redirection.title)} %>
+    <%= action_icon(
+          :edit, refinery.edit_redirections_admin_redirection_path(list_view_redirection),
+          t('edit', scope: 'refinery.redirections.admin.redirections')
+        ) %>
+    <%= action_icon(
+          :delete, refinery.redirections_admin_redirection_path(list_view_redirection),
+          t('delete', scope: 'refinery.redirections.admin.redirections'),
+          class: 'confirm-delete',
+          data: {
+            confirm: t('message', scope: 'refinery.admin.delete',
+            title: list_view_redirection.title)
+          }
+        ) %>
   </span>
 </li>
