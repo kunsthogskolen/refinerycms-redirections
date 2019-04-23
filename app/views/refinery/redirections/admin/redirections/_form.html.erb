@@ -1,8 +1,6 @@
 <%= form_for [refinery, :redirections_admin, object] do |f| -%>
   <%= render '/refinery/admin/error_messages', object: object, include_object_name: true %>
 
-  <%= render "/refinery/redirections/admin/redirections/inner_form", f: f, object: object %>
-
   <div class='field'>
     <%= f.label :from_url -%>
     <%= f.text_field :from_url, class: 'larger widest'  -%>
