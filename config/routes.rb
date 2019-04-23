@@ -5,7 +5,7 @@ Refinery::Core::Engine.routes.prepend do
   end
 
   namespace :redirections, path: '' do
-    namespace :admin, path: 'refinery' do
+    namespace :admin, path: Refinery::Core.backend_route do
       resources :redirections, except: :show
     end
   end
