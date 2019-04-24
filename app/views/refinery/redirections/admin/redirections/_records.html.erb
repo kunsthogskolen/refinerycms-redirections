@@ -1,14 +1,14 @@
 <%= render 'refinery/admin/search_header', url: refinery.redirections_admin_redirections_path %>
 <div class="pagination_container">
   <% if @redirections.any? %>
-  <%= render '/refinery/redirections/admin/redirections/redirections' %>
+  <%= render 'redirections' %>
   <% else %>
     <p>
       <% if searching? %>
         <%= t(:no_results, scope: 'refinery.admin.search') %>
       <% else %>
         <strong>
-          <%= t('.no_redirections_yet') %>
+          <%= t('.no_items_yet') %>
         </strong>
       <% end %>
     </p>

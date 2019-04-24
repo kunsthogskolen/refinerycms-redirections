@@ -1,5 +1,7 @@
-<%= form_for [refinery, :redirections_admin, object] do |f| -%>
-  <%= render '/refinery/admin/error_messages', object: object, include_object_name: true %>
+<%= form_for [refinery, :redirections_admin, @redirection] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+             object: @redirection,
+             include_object_name: true %>
 
   <div class='field'>
     <%= f.label :from_url -%>
@@ -8,7 +10,7 @@
 
   <div class='field'>
     <%= f.label :to_url -%>
-    <%= f.text_field :to_url, class: 'larger widest'  -%>
+    <%= f.text_field :to_url -%>
   </div>
 
   <div class='field'>
@@ -16,8 +18,8 @@
     <%= f.select :status_code, Refinery::Redirections::Redirection.status_code.options, class: 'widest'  -%>
   </div>
 
-  <%= render '/refinery/admin/form_actions', :f => f,
-             continue_editing: true,
-             delete_title: t('delete', scope: 'refinery.redirections.admin.redirections'),
-             delete_confirmation: t('message', scope: 'refinery.admin.delete', title: object.from_url) %>
+  <%= render '/refinery/admin/form_actions', f: f,
+             continue_editing: false,
+             delete_title: t('delete', scope: 'refinery.redirections.admin.redirections.redirection'),
+             delete_confirmation: t('message', scope: 'refinery.admin.delete', title: @redirection.from_url) %>
 <% end -%>

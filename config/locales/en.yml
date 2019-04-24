@@ -1,0 +1,36 @@
+en:
+  refinery:
+    plugins:
+      redirections:
+        title: Redirections
+    redirections:
+      admin:
+        redirections:
+          actions:
+            create_new: Add New Redirection
+            reorder: Reorder Redirections
+            reorder_done: Done Reordering Redirections
+          records:
+            title: Redirections
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Redirections yet. Click "Add New Redirection" to add your first redirection.
+          redirection:
+            view_live_html: View this redirection live <br/><em>(opens in a new window)</em>
+            edit: Edit this redirection
+            delete: Remove this redirection forever
+      redirections:
+        show:
+          other: Other Redirections
+  enumerize:
+    refinery/redirections/redirection:
+      status_code:
+        "301": "Permanent Redirect (301)"
+        "302": "Found (302)"
+        "303": "See Other (303)"
+        "307": "Temporary redirect (307)"
+  activerecord:
+    attributes:
+      'refinery/redirections/redirection':
+        from_url: From Url
+        to_url: To Url
+        status_code: Redirection type

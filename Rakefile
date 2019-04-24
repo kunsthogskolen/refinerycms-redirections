@@ -6,12 +6,12 @@ rescue LoadError
 end
 
 ENGINE_PATH = File.dirname(__FILE__)
-APP_RAKEFILE = File.expand_path("../spec/dummy/Rakefile", __FILE__)
+APP_RAKEFILE = File.expand_path("spec/dummy/Rakefile", __dir__)
 
-if File.exists?(APP_RAKEFILE)
-  load 'rails/tasks/engine.rake'
-end
+load 'rails/tasks/engine.rake' if File.exists? APP_RAKEFILE
 
 require "refinerycms-testing"
-Refinery::Testing::Railtie.load_tasks
-Refinery::Testing::Railtie.load_dummy_tasks(ENGINE_PATH)
+Refinery::Testing::Railtie.load_dummy_tasks ENGINE_PATH
+
+load File.expand_path('tasks/testing.rake', __dir__)
+load File.expand_path('tasks/rspec.rake', __dir__)

@@ -7,3 +7,5 @@ tmp/rspec_guard_result
 # Temp files from CSV in OpenOffice
 .~lock.*.csv#
 Gemfile.lock
+.byebug_history
+.rspec_failures

@@ -1,99 +1,44 @@
-require 'rubygems'
-require 'spork'
-#uncomment the following line to use spork with the debugger
-#require 'spork/ext/ruby-debug'
+# This file is copied to spec/ when you run 'rails generate rspec:install'
+ENV["RAILS_ENV"] ||= 'test'
 
-Spork.prefork do
-  # Loading more in this block will cause your tests to run faster. However,
-  # if you change any configuration or code from libraries loaded here, you'll
-  # need to restart spork for it take effect.
-
-  # This file is copied to spec/ when you run 'rails generate rspec:install'
-  ENV["RAILS_ENV"] ||= 'test'
-  require File.expand_path("../dummy/config/environment", __FILE__)
-  require 'rspec/rails'
-  require 'rspec/autorun'
-  require 'capybara/rspec'
-  require 'database_cleaner'
-
-  # Requires supporting ruby files with custom matchers and macros, etc,
-  # in spec/support/ and its subdirectories.
-  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
-  Dir[File.expand_path("../support/**/*.rb", __FILE__)].each {|f| require f}
-
-  RSpec.configure do |config|
-    # ## Mock Framework
-    #
-    # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-    #
-    # config.mock_with :mocha
-    # config.mock_with :flexmock
-    # config.mock_with :rr
-    config.mock_with :rspec
-
-    # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-    config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
-    # If you're not using ActiveRecord, or you'd prefer not to run each of your
-    # examples within a transaction, remove the following line or assign false
-    # instead of true.
-    config.use_transactional_fixtures = false
-
-    # If true, the base class of anonymous controllers will be inferred
-    # automatically. This will be the default behavior in future versions of
-    # rspec-rails.
-    config.infer_base_class_for_anonymous_controllers = false
-
-    # Run specs in random order to surface order dependencies. If you find an
-    # order dependency and want to debug it, you can fix the order by providing
-    # the seed, which is printed after each run.
-    # --seed 1234
-    config.order = "random"
-
-    # Avoid repeating FactoryGirl
-    config.include FactoryGirl::Syntax::Methods
-
-    # Capybara DSL only in request specs
-    config.include Capybara::DSL, :type => :request
-    config.include VisitWithoutRedirectsHelper, :type => :request
-
-    # Cleaning database on before and afters
-    config.before(:suite) do
-      DatabaseCleaner.clean_with(:truncation)
-    end
-
-    config.before :each do
-      DatabaseCleaner.strategy = :transaction
-    end
-
-    config.before(:each) do
-      DatabaseCleaner.start
-    end
-
-    config.after(:each) do
-      DatabaseCleaner.clean
-    end
-
-  end
-
-  # Now we define a shared connection so every activerecord object shares the connection
-  class ActiveRecord::Base
-    mattr_accessor :shared_connection
-    @@shared_connection = nil
-
-    def self.connection
-      @@shared_connection || retrieve_connection
-    end
-  end
-
-  # Forces all threads to share the same connection. This works on
-  # Capybara because it starts the web server in a thread.
-  ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
-
+require File.expand_path("dummy/config/environment", __dir__)
+if File.exist?(
+  dummy_path = File.expand_path('dummy/config/environment.rb', __dir__)
+)
+  require dummy_path
+elsif File.dirname(__FILE__).match?(%r{vendor/extensions})
+  # Require the path to the refinerycms application this is vendored inside.
+  require File.expand_path('../../../../config/environment', __dir__)
+else
+  puts "Could not find a config/environment.rb file to require. " \
+       "Please specify this in #{File.expand_path(__FILE__)}"
 end
 
-Spork.each_run do
-  # This code will be run each time you run your specs.
-  I18n.reload!
-  FactoryGirl.reload
+require 'rspec/rails'
+require 'capybara/rspec'
+
+Rails.backtrace_cleaner.remove_silencers!
+
+RSpec.configure do |config|
+  config.mock_with :rspec
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
+
+  config.before(:each) do
+    ::I18n.default_locale = I18n.locale = Globalize.locale = :en
+  end
+
+  # Avoid repeating FactoryBot
+  config.include FactoryBot::Syntax::Methods
+
+  # Store last errors so we can run rspec with --only-failures
+  config.example_status_persistence_file_path = ".rspec_failures"
+end
+
+# Requires supporting files with custom matchers and macros, etc,
+# in ./support/ and its subdirectories including factories.
+([Rails.root.to_s] | ::Refinery::Plugins.registered.pathnames).map do |p|
+  Dir[File.join(p, 'spec', 'support', '**', '*.rb').to_s]
+end.flatten.sort.each do |support_file|
+  require support_file
 end

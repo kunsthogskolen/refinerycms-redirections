@@ -7,10 +7,3 @@ en:
         status_code: Redirection type
     models:
       refinery/redirections/redirection: 'Redirection'
-  enumerize:
-    refinery/redirections/redirection:
-      status_code:
-        "301": "Permanent Redirect (301)"
-        "302": "Found (302)"
-        "303": "See Other (303)"
-        "307": "Temporary redirect (307)"

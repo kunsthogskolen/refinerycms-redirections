@@ -1,0 +1,52 @@
+Style/StringLiterals:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Metrics/MethodLength:
+  Exclude:
+    - "**/*_spec.rb"
+    - "spec/support/*"
+
+Metrics/AbcSize:
+  Exclude:
+    - "**/*_spec.rb"
+    - "spec/support/*"
+
+Lint/Debugger:
+    Exclude:
+      - "spec/support/*"
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/MixinGrouping:
+  Exclude:
+    - "**/*_spec.rb"
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "**/*_spec.rb"
+
+Layout/IndentHeredoc:
+  Exclude:
+    - "**/*_spec.rb"
+
+Naming/VariableNumber:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.4
+  DisplayCopNames: true
