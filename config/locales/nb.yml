@@ -2,27 +2,36 @@ nb:
   refinery:
     plugins:
       redirections:
-        title: Redirections
+        title: Omdirigeringer
     redirections:
       admin:
         redirections:
           actions:
-            create_new: Lag en ny Redirection
-            reorder: Endre rekkefølgen på Redirections
-            reorder_done: Ferdig å endre rekkefølgen Redirections
+            create_new: Lag en ny Omdirigering
+            reorder: Endre rekkefølgen på Omdirigeringer
+            reorder_done: Ferdig å endre rekkefølgen Omdirigeringer
           records:
-            title: Redirections
+            title: Omdirigeringer
             sorry_no_results: Beklager! Vi fant ikke noen resultater.
-            no_items_yet: Det er ingen Redirections enda. Klikk på "Lag en ny Redirection" for å legge til din første redirection.
+            no_items_yet: Det er ingen Omdirigeringer enda. Klikk på "Lag en ny Omdirigering" for å legge til din første omdirigering.
           redirection:
-            view_live_html: Vis hvordan denne redirection ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
-            edit: Rediger denne redirection
-            delete: Fjern denne redirection permanent
+            edit: Rediger denne omdirigering
+            delete: Fjern denne omdirigering permanent
       redirections:
         show:
-          other: Andre Redirections
+          other: Andre Omdirigeringer
+  enumerize:
+    refinery/redirections/redirection:
+      status_code:
+        "301": "Permanent Redirect (301)"
+        "302": "Found (302)"
+        "303": "See Other (303)"
+        "307": "Temporary redirect (307)"
   activerecord:
+    models:
+      refinery/redirections/redirection: Omdirigering
     attributes:
       'refinery/redirections/redirection':
         from_url: From Url
         to_url: To Url
+        status_code: Omdirigeringstype

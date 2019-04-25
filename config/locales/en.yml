@@ -15,7 +15,6 @@ en:
             sorry_no_results: Sorry! There are no results found.
             no_items_yet: There are no Redirections yet. Click "Add New Redirection" to add your first redirection.
           redirection:
-            view_live_html: View this redirection live <br/><em>(opens in a new window)</em>
             edit: Edit this redirection
             delete: Remove this redirection forever
       redirections:
@@ -29,6 +28,8 @@ en:
         "303": "See Other (303)"
         "307": "Temporary redirect (307)"
   activerecord:
+    models:
+      refinery/redirections/redirection: 'Redirection'
     attributes:
       'refinery/redirections/redirection':
         from_url: From Url
