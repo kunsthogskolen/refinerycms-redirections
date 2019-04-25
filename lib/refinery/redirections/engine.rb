@@ -21,18 +21,18 @@ module Refinery
         Refinery.register_engine(Refinery::Redirections)
       end
 
-      # initializer 'add rack rewrite rules' do |app|
-      #   if Refinery::Redirections.enable_rack_redirection
-      #     app.config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
-      #       Refinery::Redirections::Redirection.all.each do |redirection|
-      #         next unless respond_to? "r#{redirection.status_code}"
-      #
-      #         send("r#{redirection.status_code}", redirection.from_url,
-      #              redirection.to_url)
-      #       end
-      #     end
-      #   end
-      # end
+      initializer 'add rack rewrite rules' do |app|
+        if Refinery::Redirections.enable_rack_redirection
+          app.config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
+            Refinery::Redirections::Redirection.all.each do |redirection|
+              next unless respond_to? "r#{redirection.status_code}"
+
+              send("r#{redirection.status_code}", redirection.from_url,
+                   redirection.to_url)
+            end
+          end
+        end
+      end
     end
   end
 end

@@ -43,7 +43,7 @@ describe Refinery do
               expect { click_button "Save" }.to change(
                 Refinery::Redirections::Redirection, :count
               ).from(0).to(1)
-              
+
               visit refinery.redirections_admin_redirections_path
 
               expect(page).to have_content(
