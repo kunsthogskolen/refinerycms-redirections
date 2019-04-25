@@ -3,7 +3,9 @@ module Refinery
     module Admin
       class RedirectionsController < ::Refinery::AdminController
         crudify :'refinery/redirections/redirection',
-                title_attribute: :from_url
+                title_attribute: :from_url,
+                order: 'updated_at desc',
+                searchable: false, sortable: false
 
         private
 
