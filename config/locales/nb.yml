@@ -7,19 +7,19 @@ nb:
       admin:
         redirections:
           actions:
-            create_new: Lag en ny Omdirigering
-            reorder: Endre rekkefølgen på Omdirigeringer
-            reorder_done: Ferdig å endre rekkefølgen Omdirigeringer
+            create_new: Lag en ny omdirigering
+            reorder: Endre rekkefølgen på omdirigeringer
+            reorder_done: Ferdig å endre rekkefølgen omdirigeringer
           records:
             title: Omdirigeringer
             sorry_no_results: Beklager! Vi fant ikke noen resultater.
-            no_items_yet: Det er ingen Omdirigeringer enda. Klikk på "Lag en ny Omdirigering" for å legge til din første omdirigering.
+            no_items_yet: Det er ingen omdirigeringer enda. Klikk på "Lag en ny omdirigering" for å legge til din første omdirigering.
           redirection:
             edit: Rediger denne omdirigering
             delete: Fjern denne omdirigering permanent
       redirections:
         show:
-          other: Andre Omdirigeringer
+          other: Andre omdirigeringer
   enumerize:
     refinery/redirections/redirection:
       status_code:
@@ -32,6 +32,6 @@ nb:
       refinery/redirections/redirection: Omdirigering
     attributes:
       'refinery/redirections/redirection':
-        from_url: From Url
-        to_url: To Url
+        from_url: Fra Url
+        to_url: Til Url
         status_code: Omdirigeringstype
