@@ -1,6 +1,6 @@
 class CreateRedirectionsRedirections < ActiveRecord::Migration[5.1]
   def up
-    create_table :refinery_redirections do |t|
+    create_table Refinery::Redirections::Redirection.table_name do |t|
       t.string :from_url
       t.string :to_url
       t.integer :status_code, default: 301
