@@ -47,8 +47,8 @@ describe Refinery do
               visit refinery.redirections_admin_redirections_path
 
               expect(page).to have_content(
-                "'This is a test of the first string field' was " \
-                "successfully added."
+                'This is a test of the first string field → ' \
+                'This is a test of the second string'
               )
             end
           end

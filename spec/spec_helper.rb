@@ -42,3 +42,7 @@ end
 end.flatten.sort.each do |support_file|
   require support_file
 end
+
+def debug
+  save_and_open_page
+end
