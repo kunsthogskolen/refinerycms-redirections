@@ -1,7 +1,7 @@
 require File.expand_path('lib/refinery/redirections/version', __dir__)
 
 version = Refinery::Redirections::Version
-rails_version = ['>= 5.1.0', '< 5.2']
+rails_version = ['>= 5.1.0', '< 6.0']
 
 Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
